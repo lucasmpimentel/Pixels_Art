@@ -1,0 +1,164 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+header {
+  background-color: #1d3557;
+  overflow: hidden;
+  width: 100%;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-around;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+#header-title {
+  margin: 0px;
+  width: 500px;
+  display: inline-flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+#title {
+  color: white;
+  font-family: monospace;
+  visibility: hidden;
+}
+
+#real-title {
+  font-family: Comforter, monospace;
+  font-size: 40pt;
+  font-style: italic;
+  color: white;
+}
+
+#align-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+}
+
+#clear-buttons {
+  clear: both;
+  width: 35%;
+  display: flex;
+  align-self: center;
+  justify-content: space-around;
+  align-content: center;
+}
+
+.top-buttons {
+  clear: both;
+  font-family: monospace;
+  font-size: 14pt;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+  padding: 12px;
+  text-decoration: none;
+  color: white;
+  cursor: pointer;
+  border-bottom: #e63946 solid 3px;
+}
+
+.top-buttons:hover {
+  background-color: #a8dadc;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+#wrapper {
+  clear: both;
+  background-color: #457b9d;
+  clear: both;
+  padding: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-bottom: 30px;
+}
+
+#instructions {
+  background-color: rgba(0, 0, 0, 0.25);
+  color: white;
+  border-radius: 10px;
+  width: 300px;
+  padding: 15px;
+  text-align: justify;
+}
+
+#list1 {
+  margin-left: -25px;
+}
+
+#wrap-palette {
+  width: 70%;
+  background-color: rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  padding: 15px;
+  color:white;
+}
+
+#color-palette {
+
+  /* solução de alinhamento encontrada aqui:
+  https://www.webcis.com.br/centralizar-divs-na-horizontal-e-vertical-com-css.html */
+  clear: both;
+  display: flex;
+  justify-content: space-around;
+  padding: 5px 300px;
+  margin-bottom: 30px;
+}
+
+#black {
+  background-color: black;
+}
+
+.color {
+  border: solid 1px black;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  flex-direction: row;
+  margin: 5px;
+  cursor: pointer;
+}
+
+#inputWrap {
+  clear: both;
+  width: 25%;
+  display: flex;
+  align-content: center;
+  align-self: center;
+  justify-content: space-around;
+}
+
+#board-size {
+  width: 80px;
+  font-size: 14pt;
+  border: 1px solid black;
+  border-radius: 5px;
+  text-align: center;
+}
+
+#generate-board {
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.pixel {
+  width: 40px;
+  height: 40px;
+  display: inline-block;
+  border: solid 1px black;
+  border-radius: 50%;
+  background-color: white;
+  cursor: pointer;
+}

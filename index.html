@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Comforter&display=swap" rel="stylesheet">
+  <script src="script.js" defer></script>
+  <title>Pixels Art</title>
+</head>
+<body>
+  <header>
+    <div id="header-title">
+      <h1 id="real-title">Pixels Art</h1>
+      <h1 id="title">Paleta de Cores</h1>
+    </div>    
+  </header>
+  <main id="main">
+    <div id="wrapper">
+      <div id=instructions>
+        <h2>Instruções:</h2>
+          <ol id="list1">
+            <li>Digite o tamanho da grade que deseja e clique em VQV para redimensionar.</li>
+            <li>Para reiniciar a grade clique em Reiniciar</li>
+            <li>Clique em recarregar cores para recarregar uma nova Paleta</li>
+          </ol>
+      </div>
+      <div id="wrap-palette">
+        <h2>Paleta de Cores:</h2>
+        <div id="color-palette">
+          <div id="black" class="color selected"></div>
+          <div id="color2" class="color"></div>
+          <div id="color3" class="color"></div>
+          <div id="color4" class="color"></div>
+        </div> <!-- fecha color-palette -->
+        <div id="align-buttons">
+          <form id=inputWrap>
+            <input id='board-size' type="number" name="size" placeholder="Num..." title="Digite o tamanho da grade.">
+            <input type="submit" value="VQV" id=generate-board class="top-buttons">
+          </form> <!-- fecha inputWrap --> 
+          <div id="clear-buttons">
+            <button id="restart" class="top-buttons">Sortear Cores</button>
+            <button id="clear-board" class="top-buttons">Limpar</button>
+          </div>
+        </div>
+      </div> <!-- fecha wrap-palette -->
+    </div> <!-- fecha wrapper -->
+    <div id="pixel-board"></div>
+  </main>
+  
+</body>
+</html>
