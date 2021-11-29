@@ -18,7 +18,7 @@ h2 {
 }
 
 #header-title {
-  margin: 0px;
+  margin: 0;
   width: 500px;
   display: inline-flex;
   justify-content: flex-start;
@@ -73,10 +73,14 @@ h2 {
   cursor: pointer;
 }
 
+#main {
+  clear: both;
+  background-color: #457b9d;
+}
+
 #wrapper {
   clear: both;
   background-color: #457b9d;
-  clear: both;
   padding: 15px;
   display: flex;
   flex-wrap: wrap;
@@ -102,7 +106,7 @@ h2 {
   background-color: rgba(0, 0, 0, 0.25);
   border-radius: 10px;
   padding: 15px;
-  color:white;
+  color: white;
 }
 
 #color-palette {
@@ -153,12 +157,33 @@ h2 {
   cursor: pointer;
 }
 
+.line {
+  display: flex;
+  justify-content: space-around;
+  padding: 5px 550px;
+}
+
 .pixel {
   width: 40px;
   height: 40px;
   display: inline-block;
   border: solid 1px black;
   border-radius: 50%;
-  background-color: white;
   cursor: pointer;
+}
+
+.clean {
+  background-color: white;
+}
+
+.sel2 {
+  background-color: aqua;
+}
+
+.sel3 {
+  background-color: yellow;
+}
+
+.sel4 {
+  background-color: red;
 }
