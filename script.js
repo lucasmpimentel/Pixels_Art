@@ -3,9 +3,10 @@ let boardSize = document.querySelector('#board-size');
 const firstBoard = 5;
 const pBoard = document.getElementById('pixel-board');
 const newColors = document.querySelector('#restart');
+const clearBt = document.querySelector('#clear-board')
 const vqv = document.querySelector('#generate-board');
-const black = document.querySelector('#black');
-const paletteSize = document.getElementsByClassName('color');
+const black = document.querySelector('.black');
+const palettes = document.getElementsByClassName('color');
 
 /* Após ler a documentação de Math.floor e Math.random e buscar
 soluções e discutir com colegas, cheguei a essa conclusão para
@@ -22,12 +23,12 @@ const generatePalette = () => {
 };
 
 function getColor(sel) {
-  document.querySelector('selected').classList.remove('selected');
+  document.getElementsByClassName('selected')[0].classList.remove('selected');
   sel.target.classList.add('selected');
-  console.log('sel');
+  console.log(sel.target);
 }
-for (let i2 = 0; i2 < paletteSize.lenght; i2 += 1) {
-  paletteSize[i2].addEventListener('click', getColor);
+for (let i2 = 0; i2 < palettes.lenght; i2 += 1) {
+  palettes[i2].addEventListener('click', getColor);
 }
 
 function paint(event) {
@@ -36,18 +37,18 @@ function paint(event) {
   if (choosen === black) {
     clicked.classList.remove('clean');
     clicked.classList.add('black');
-  } else if (choosen === document.querySelector('#color2')) {
+  } else if (choosen === document.getElementById('color2')) {
     clicked.classList.remove('clean');
-    const choosen2 = document.querySelector('#color2').style.backgroundColor;
-    clicked.classList.add('sel2').style.backgroundColor = choosen2;
-  } else if (choosen === document.querySelector('#color3')) {
+    const choosen2 = document.getElementById('color2').style.backgroundColor;
+    clicked.style.backgroundColor = choosen2;
+  } else if (choosen === document.getElementById('color3')) {
     clicked.classList.remove('clean');
-    const choosen3 = document.querySelector('#color3').style.backgroundColor;
-    clicked.classList.add('sel3').style.backgroundColor = choosen3;
+    const choosen3 = document.getElementById('color3').style.backgroundColor;
+    clicked.style.backgroundColor = choosen3;
   } else {
     clicked.classList.remove('clean');
-    const choosen4 = document.querySelector('#color2').style.backgroundColor;
-    clicked.classList.add('sel4').style.backgroundColor = choosen4;
+    const choosen4 = document.getElementById('color4').style.backgroundColor;
+    clicked.style.backgroundColor = choosen4;
   }
 }
 
@@ -63,34 +64,18 @@ for (let i = 0; i < firstBoard; i += 1) {
   }
 }
 
-/* fonte do classList.add:
-https://pt.stackoverflow.com/questions/288080/como-criar-elementos-e-adicionar-atributos-com-o-javascript-puro */
-/* for (let i = 0; i < firstBoard; i += 1); {
-  const line = document.createElement('div');
-  line.classList.add('linha');
-  pBoard.appendChild('line');
-  for (let ii = 0; ii < firstBoard; ii += 1); {
-    const circle = document.createElement('div');
-    circle.classList.add('pixel', 'clean');
-    circle.addEventListener('click', (event) => {
-      const selected = document.querySelector('.selected');
-      let clicked = event.target;
-      if (selected === black) {
-        clicked.classList.remove('clean');
-        clicked.classList.add('black');
-      } else if (selected === ) {
-        clicked.classList.remove('clean');
-        clicked.classList.add('2');
-      } else if (selected === ) {
-        clicked.classList.remove('clean');
-        clicked.classList.add('3');
-      } else {
-        clicked.classList.remove('clean');
-        clicked.classList.add('4');
-      }
-    });
+function setFirstSelection() {
+  const first = document.getElementsByClassName('color')[0];
+  first.classList.add('selected');
+}
+
+clearBt.addEventListener('click', () => {
+  const board = document.getElementsByClassName('pixel');
+  for (let i3 = 0; i3 < board.lenght; i3 += 1) {
+    board[i3].className('clean');
+    // board[i3].style.backgroundColor = 'white';
   }
-} */
+});
 
 /* function boardChanger() {
   if (boardSize !== '' && boardSize.value > 5) {
@@ -108,6 +93,7 @@ https://pt.stackoverflow.com/questions/288080/como-criar-elementos-e-adicionar-a
 vqv.addEventListener('click', boardChanger); */
 
 // EVENTOS
-window.onload = generatePalette;
+window.onload = setFirstSelection;
+generatePalette();
 newColors.addEventListener('click', generatePalette);
 console.log(randomize);

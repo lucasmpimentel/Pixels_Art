@@ -121,7 +121,11 @@ h2 {
 }
 
 #black {
-  background-color: black;
+  background-color: rgb(0, 0, 0);
+}
+
+.black {
+  background-color: rgb(0, 0, 0);
 }
 
 .color {
