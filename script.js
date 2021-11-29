@@ -3,7 +3,7 @@ let boardSize = document.querySelector('#board-size');
 const firstBoard = 5;
 const pBoard = document.getElementById('pixel-board');
 const newColors = document.querySelector('#restart');
-const clearBt = document.querySelector('#clear-board')
+const clearBt = document.getElementById('clear-board');
 const vqv = document.querySelector('#generate-board');
 const black = document.querySelector('.black');
 const palettes = document.getElementsByClassName('color');
@@ -21,11 +21,13 @@ const generatePalette = () => {
   const pC4 = document.getElementById('color4');
   pC4.style.backgroundColor = `rgb(${randomize()}, ${randomize()}, ${randomize()})`;
 };
+const first = document.querySelector('.color');
+first.classList.add('selected');
 
-function getColor(sel) {
-  document.getElementsByClassName('selected')[0].classList.remove('selected');
-  sel.target.classList.add('selected');
-  console.log(sel.target);
+function getColor(event) {
+  const get = document.querySelector('.selected');
+  get.classList.remove('selected');
+  event.target.classList.add('selected');
 }
 for (let i2 = 0; i2 < palettes.lenght; i2 += 1) {
   palettes[i2].addEventListener('click', getColor);
@@ -64,18 +66,13 @@ for (let i = 0; i < firstBoard; i += 1) {
   }
 }
 
-function setFirstSelection() {
-  const first = document.getElementsByClassName('color')[0];
-  first.classList.add('selected');
-}
 
-clearBt.addEventListener('click', () => {
+function clearBoard() {
   const board = document.getElementsByClassName('pixel');
-  for (let i3 = 0; i3 < board.lenght; i3 += 1) {
-    board[i3].className('clean');
-    // board[i3].style.backgroundColor = 'white';
+  for (let i = 0; i < board.length; i += 1) {
+    board[i].classList.add('clean');
   }
-});
+}
 
 /* function boardChanger() {
   if (boardSize !== '' && boardSize.value > 5) {
@@ -93,7 +90,8 @@ clearBt.addEventListener('click', () => {
 vqv.addEventListener('click', boardChanger); */
 
 // EVENTOS
-window.onload = setFirstSelection;
+// window.onload = setFirstSelection;
 generatePalette();
 newColors.addEventListener('click', generatePalette);
-console.log(randomize);
+clearBt.addEventListener('click', clearBoard);
+
