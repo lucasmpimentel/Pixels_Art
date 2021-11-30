@@ -120,8 +120,20 @@ h2 {
   margin-bottom: 30px;
 }
 
-.black {
+#color1 {
   background-color: black;
+}
+
+#color2 {
+  background-color: green;
+}
+
+#color3 {
+  background-color: yellow;
+}
+
+#color4 {
+  background-color: red;
 }
 
 .color {
@@ -170,20 +182,4 @@ h2 {
   border: solid 1px black;
   border-radius: 50%;
   cursor: pointer;
-}
-
-.clean {
-  background-color: white;
-}
-
-.sel2 {
-  background-color: aqua;
-}
-
-.sel3 {
-  background-color: yellow;
-}
-
-.sel4 {
-  background-color: red;
 }
