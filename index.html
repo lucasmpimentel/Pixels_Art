@@ -37,10 +37,10 @@
           <button id="color4" class="color"></button>
         </div> <!-- fecha color-palette -->
         <div id="align-buttons">
-          <form id=inputWrap>
-            <input id='board-size' type="number" name="size" placeholder="Num..." title="Digite o tamanho da grade.">
-            <input type="submit" value="VQV" id=generate-board class="top-buttons">
-          </form> <!-- fecha inputWrap --> 
+          <div id=inputWrap>
+            <input id='board-size' type="numeric" name="size" title="Digite o tamanho da grade." min="0">
+            <button type="button" id=generate-board name="size" class="top-buttons">VQV</button>
+          </div> <!-- fecha inputWrap --> 
           <div id="clear-buttons">
             <button id="restart" class="top-buttons">Sortear Cores</button>
             <button id="clear-board" class="top-buttons">Limpar</button>

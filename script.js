@@ -1,10 +1,9 @@
 // --------------- Declarações de interface -------------------------
-// let = document.querySelector('#board-size');
-const firstBoard = 5;
+
 const pBoard = document.getElementById('pixel-board');
 const newColors = document.querySelector('#restart');
 const clearBt = document.getElementById('clear-board');
-// const vqv = document.querySelector('#generate-board');
+const vqv = document.querySelector('#generate-board');
 const pixels = document.getElementsByClassName('pixel');
 const palettes = document.getElementsByClassName('color');
 
@@ -31,18 +30,20 @@ const generatePalette = () => {
 
 // ---------------------------- PRIMEIRO QUADRO ------------------------------
 
-for (let i = 0; i < firstBoard; i += 1) {
-  const line = document.createElement('div');
-  line.classList.add('line');
-  pBoard.appendChild(line);
-  for (let ii = 0; ii < firstBoard; ii += 1) {
-    const circle = document.createElement('div');
-    circle.classList.add('pixel');
-    circle.style.backgroundColor = 'white';
-    line.appendChild(circle);
+function genBoard(size = 5) {
+  for (let i = 0; i < size; i += 1) {
+    const line = document.createElement('div');
+    line.classList.add('line');
+    pBoard.appendChild(line);
+    for (let ii = 0; ii < size; ii += 1) {
+      const circle = document.createElement('div');
+      circle.classList.add('pixel');
+      circle.style.backgroundColor = 'white';
+      line.appendChild(circle);
+    }
   }
 }
-
+genBoard();
 // ------------------------------ SELECINAR PRETO ----------------------------
 
 const first = document.getElementById('color1');
@@ -55,6 +56,7 @@ for (const iii of palettes) {
     const lastColor = document.querySelector('.selected');
     lastColor.classList.remove('selected');
     event.target.classList.add('selected');
+    console.log('removeu selected')
   });
 }
 
@@ -64,6 +66,7 @@ for (const iv of pixels) {
   iv.addEventListener('click', (event) => {
     const clickedColor = document.querySelector('.selected').style.backgroundColor;
     event.target.style.backgroundColor = clickedColor;
+    console.log('colocou selected');
   });
 }
 
@@ -76,28 +79,30 @@ function clearBoard() {
 }
 
 // ---------------- EVENTOS --------------------------
-// window.onload = setFirstSelection;
 generatePalette();
 newColors.addEventListener('click', generatePalette);
 clearBt.addEventListener('click', clearBoard);
 
-//
-
-//
-
-//
-
-/* function boardChanger() {
-  if (boardSize !== '' && boardSize.value > 5) {
-    boardSize = 5;
-    boardSize = parseInt(boardSize, 10);
-  } else if (boardSize !== '' && boardSize.value > 50) {
-    boardSize = 50;
-    boardSize = parseInt(boardSize, 10);
-  } else {
-    boardSize = (boardSize.value);
-    boardSize = parseInt(boardSize, 10);
+// ------------------------- QUADRO DEFINIDO NO INPUT ------------------------
+function removeBoard() {
+  while (document.getElementsByClassName('line')[0]) {
+    document.getElementsByClassName('line')[0].remove();
   }
-  return boardSize;
 }
-vqv.addEventListener('click', boardChanger); */
+vqv.addEventListener('click', () => {
+  console.log('start');
+  let boardSize = document.getElementById('board-size').value;
+  removeBoard();
+  if (boardSize === '') {
+    alert('Board inválido!');
+  } else if (boardSize <= 5) {
+    boardSize = 5;
+    genBoard(boardSize);
+  } else if (boardSize >= 50) {
+    boardSize = 50;
+    genBoard(boardSize);
+  } else {
+    boardSize = parseInt(boardSize, 10);
+    genBoard(boardSize);
+  }
+});
